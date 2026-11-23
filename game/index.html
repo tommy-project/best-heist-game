@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NIGHTSHIFT — A Heist in Three Rooms</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage">
+  <canvas id="game" width="1280" height="720"></canvas>
+
+  <div id="hud" class="hidden">
+    <div class="hud-left">
+      <div class="hud-room"><span id="hud-room-name">The Meridian Vault</span><span id="hud-room-num">ROOM 1 / 3</span></div>
+      <div class="hud-loot">LOOT <b id="hud-loot">$0</b><span id="hud-loot-count">0 / 3 taken</span></div>
+    </div>
+    <div class="hud-center">
+      <div class="alarm-label"><span id="alarm-word">UNDETECTED</span><span id="alarm-num">0%</span></div>
+      <div class="alarm-track"><div id="alarm-fill"></div></div>
+    </div>
+    <div class="hud-right">
+      <div class="hud-timer">TIME <b id="hud-time">00:00</b></div>
+      <div class="hud-tools">
+        <span class="tool" id="tool-emp" title="EMP — kills cameras for 6s (key 1)">EMP <b>2</b><i>key 1</i></span>
+        <span class="tool" id="tool-smoke" title="Smoke — hides you for 5s (key 2)">SMOKE <b>2</b><i>key 2</i></span>
+        <span class="tool" id="tool-noise" title="Noisemaker — click anywhere to throw it">NOISE <b>2</b><i>click</i></span>
+      </div>
+    </div>
+  </div>
+
+  <div id="banner" class="hidden"></div>
+  <div id="hint" class="hidden">WASD / arrows to move &nbsp;·&nbsp; hold <b>E</b> by the loot to crack it &nbsp;·&nbsp; click to throw a noisemaker &nbsp;·&nbsp; <b>1</b> EMP &nbsp;·&nbsp; <b>2</b> smoke</div>
+
+  <div id="title-screen" class="overlay">
+    <div class="title-inner">
+      <div class="title-kicker">A HEIST IN THREE ROOMS</div>
+      <h1>NIGHTSHIFT</h1>
+      <p class="title-sub">One thief. Three rooms. Every eye in the building is sweeping for you.</p>
+      <div class="title-rules">
+        <div><span class="rule-dot gold"></span>Grab the loot, then reach the green exit. The alarm only falls when nobody can see you.</div>
+        <div><span class="rule-dot red"></span>Red cones are guard and camera vision. A half-second in a cone is a warning — stay, and the alarm climbs.</div>
+        <div><span class="rule-dot teal"></span>Use cover, tools and patience. EMP kills cameras, smoke hides you, a noisemaker pulls a guard away.</div>
+      </div>
+      <button id="start-btn" class="big-btn">BEGIN THE HEIST</button>
+      <p class="title-foot">WASD / arrows move &nbsp;·&nbsp; E cracks the loot &nbsp;·&nbsp; click throws a noisemaker &nbsp;·&nbsp; 1 EMP &nbsp;·&nbsp; 2 smoke</p>
+    </div>
+  </div>
+
+  <div id="end-screen" class="overlay hidden">
+    <div class="title-inner">
+      <div class="title-kicker" id="end-kicker">THE JOB IS DONE</div>
+      <h1 id="end-title">CLEAN GETAWAY</h1>
+      <p class="title-sub" id="end-text"></p>
+      <div class="title-rules" id="end-stats"></div>
+      <button id="again-btn" class="big-btn">PLAY AGAIN</button>
+      <button id="next-btn" class="big-btn ghost hidden">NEXT ROOM</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
